@@ -3,12 +3,9 @@ from tkinter import *
 import yt_dlp
 from tqdm import tqdm
 
-# Obtem o caminho da área de trabalho de forma mais garantida
-if os.name == 'nt':  # Para Windows
+if os.name == 'nt': 
     desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
-else:  # Para macOS/Linux
-    desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
-
+    
 def progress_hook(d):
     if d['status'] == 'downloading':
         total_bytes = d.get('total_bytes', 0) or d.get('total_bytes_estimate', 0)
